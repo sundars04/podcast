@@ -6,10 +6,10 @@
 				<ul>
 					<% if podcast_signed_in? %>
 						<li><a href="#">Dashboard</a></li>
-						<li><a href="#">Explore</a></li>
+						<li><%= link_to "Explore", podcasts_path %></li>
 						<li><%= link_to "Sign Out", destroy_podcast_session_path, method: :delete %></li>
 					<% else %>
-						<li><a href="#">Explore</a></li>
+						<li><%= link_to "Explore", podcasts_path %></li>
 						<li><%= link_to "Sign In", new_podcast_session_path %></li>					
 						<li><%= link_to "Create Podcast", new_podcast_registration_path %></li>
 					<% end -%>
@@ -20,6 +20,7 @@
 	<div class="wrapper_skinny">
 		<h1>Discover your new favourite<br> podcast, or create your own.</h1>
 		<%= link_to "Create Podcast", new_podcast_registration_path, class:"button button_highlight" %>
+		<%= link_to "Explore", podcasts_path, class:"button button_white" %>
 		<a href="#" class="button button_white">Explore</a>
 	</div>
 </div>
