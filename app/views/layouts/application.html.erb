@@ -16,6 +16,24 @@
   	  <p class="notice">
         <%= notice %></p>
     <% end -%>
+    <header id="main_header" class="cf">
+      <div class="wrapper_wide">
+        <%= link_to "Podcast.fm", root_path, id: "logo"%>        
+        <nav>
+          <ul>
+            <% if podcast_signed_in? %>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Explore</a></li>
+              <li><%= link_to "Sign Out", destroy_podcast_session_path, method: :delete %></li>
+            <% else %>
+              <li><a href="#">Explore</a></li>
+              <li><%= link_to "Sign In", new_podcast_session_path %></li>         
+              <li><%= link_to "Create Podcast", new_podcast_registration_path %></li>
+            <% end -%>            
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <%= yield %>
   </body>
