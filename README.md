@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple podcast website built using RoR, users can login and publish podcasts upload mp3's edit and delete them as well.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 2.3.0
 
-* System dependencies
+* Rails version - 5.0.0.1
 
-* Configuration
+* Database - sqlite3
 
-* Database creation
+* Additional gems - devise, paperclip, font-awesome-rails and will paginate
 
-* Database initialization
+* Additionally used jplayer - http://jplayer.org/
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Deployment instructions(local) - git clone, bundle install, db:migrate and run server
 
 * ...
