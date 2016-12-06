@@ -10,31 +10,29 @@
 
   <body>
     <% if alert %>
-      <p class="alert">
-        <%= alert %></p>
-    <% elsif notice %>
-  	  <p class="notice">
-        <%= notice %></p>
-    <% end -%>
-    <header id="main_header" class="cf">
-      <div class="wrapper_wide">
-        <%= link_to "Podcast.fm", root_path, id: "logo"%>        
-        <nav>
-          <ul>
-            <% if podcast_signed_in? %>
-              <li><%= link_to "Dashboard", root_path%></li>
-              <li><%= link_to "Explore", podcasts_path %></li>
-              <li><%= link_to "Sign Out", destroy_podcast_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Explore", podcasts_path %></li>
-              <li><%= link_to "Sign In", new_podcast_session_path %></li>         
-              <li><%= link_to "Create Podcast", new_podcast_registration_path %></li>
-            <% end -%>            
-          </ul>
-        </nav>
+      <div id="notice_wrapper">
+        <p class="alert"><%= alert %></p>
       </div>
-    </header>
+    <% elsif notice %>
+      <div id="notice_wrapper">
+    	  <p class="notice"><%= notice %></p>
+      </div>
+    <% end -%>
+
+    <% unless current_page?(root_path)%>
+      <%= render 'layouts/header' %>
+    <% end -%>
 
     <%= yield %>
+
+    <script>
+      $(document).ready(function(){
+        setTimeout(function() {
+          $('#notice_wrapper').fadeOut("slow", function() {
+            $this.remove();
+          });
+        }, 4500 );
+      });      
+    </script>
   </body>
 </html>

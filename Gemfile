@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'paperclip'
 gem "font-awesome-rails"
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
